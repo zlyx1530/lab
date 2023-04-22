@@ -1,29 +1,23 @@
-class Account:
-    def __init__(self, name:str) -> None:
-        """
-        initilize function. Sets 2 private
-         params: name to str and sets account_balance to 0
-        :param name: passed name of account
-        """
-        self.__account_name = name
-        self.__account_balance = 0
+from account import Account
+import pytest
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.__account_balance += amount
-            return True
-        else:
-            return False
+def test_init():
+    j = Account("John")
+    assert j.getname() == "John"
+    assert j.getbalance() == 0
 
-    def withdraw(self, amount):
-        if amount > self.__account_balance or amount <= 0:
-            return False
-        else:
-            self.__account_balance += amount
-            return True
 
-    def get_balance(self):
-        return self.__account_balance
+def test_deposit():
+    f = account("Fred")
+    f.deposit(100)
+    assert f.getbalance() == 100
 
-    def get_name(self):
-        return self.__account_name
+
+def test_withdraw():
+    a = account("Alex")
+    a.deposit(10000)
+    a.withdraw(2567)
+    assert a.getbalance() == 7433
+
+
+
