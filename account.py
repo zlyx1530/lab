@@ -3,7 +3,7 @@ class Account:
         self.__account_name = name
         self.__account_balance = 0
 
-    def deposi(self, amount):
+    def deposit(self, amount):
         if amount > 0:
             self.__account_balance += amount
             return True
